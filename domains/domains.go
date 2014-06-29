@@ -47,14 +47,4 @@ func DomainsAddDB(dbname string, domainname string) {
 	}
 
 	tx.Commit()
-	rows, err = db.Query("select id, name from domains")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer rows.Close()
-	for rows.Next() {
-		var name string
-		rows.Scan(&id, &name)
-		fmt.Println(id, name)
-	}
 }
